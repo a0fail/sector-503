@@ -192,7 +192,7 @@ export const App = () => {
       <div className={style.console}>
         <img
           className={style.consoleBody}
-          src="/textures/console/console.png"
+          src="./textures/console/console.png"
           alt="Консоль Game Boy Advance"
           draggable={false}
         />

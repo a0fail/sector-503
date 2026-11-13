@@ -24,24 +24,24 @@ afterEach(() => {
 });
 it('retries missing PNGs after five seconds instead of keeping the fallback forever', async () => {
   const { getImage } = await import('./images');
-  expect(getImage('/textures/enemies/boss-idle.png')).toBeNull();
+  expect(getImage('./textures/enemies/boss-idle.png')).toBeNull();
   created[0].onerror();
   vi.advanceTimersByTime(4999);
-  getImage('/textures/enemies/boss-idle.png');
+  getImage('./textures/enemies/boss-idle.png');
   expect(created).toHaveLength(1);
   vi.advanceTimersByTime(1);
-  getImage('/textures/enemies/boss-idle.png');
+  getImage('./textures/enemies/boss-idle.png');
   expect(created).toHaveLength(2);
   created[1].complete = true;
   created[1].naturalWidth = 2234;
-  expect(getImage('/textures/enemies/boss-idle.png')).toBe(created[1]);
+  expect(getImage('./textures/enemies/boss-idle.png')).toBe(created[1]);
 });
 it('uses both custom boss PNG frames instead of procedural art once loaded', async () => {
   const { getEnemyImage } = await import('./images');
   getEnemyImage(3, false);
   expect(created.map((image) => image.src)).toEqual([
-    '/textures/enemies/boss-idle.png?assets=console-v1',
-    '/textures/enemies/boss-shoot.png?assets=console-v1',
+    './textures/enemies/boss-idle.png?assets=console-v1',
+    './textures/enemies/boss-shoot.png?assets=console-v1',
   ]);
   created.forEach((image) => {
     image.complete = true;

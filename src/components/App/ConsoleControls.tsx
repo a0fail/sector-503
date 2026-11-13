@@ -64,7 +64,9 @@ function ConsoleButton({ label, texture, enabled = true, className = '', onClick
         if (event.code === 'Space' || event.code === 'Enter') release(-1);
       }}
     >
-      {texture && <img draggable={false} alt="" src={`/textures/console/${texture}${pressed ? '_pressed' : ''}.png`} />}
+      {texture && (
+        <img draggable={false} alt="" src={`./textures/console/${texture}${pressed ? '_pressed' : ''}.png`} />
+      )}
     </button>
   );
 }
@@ -87,8 +89,13 @@ export function ConsoleControls({ playing, paused, move, fire, pause, start, res
   return (
     <>
       <div className={style.cross} style={consolePosition(74.476, 137.321, 858, 858)}>
-        <img className={style.crossIdle} src="/textures/console/button_cross.png" alt="" draggable={false} />
-        <img className={style.crossPressed} src="/textures/console/button_cross_pressed.png" alt="" draggable={false} />
+        <img className={style.crossIdle} src="./textures/console/button_cross.png" alt="" draggable={false} />
+        <img
+          className={style.crossPressed}
+          src="./textures/console/button_cross_pressed.png"
+          alt=""
+          draggable={false}
+        />
         {DIRECTIONS.map(({ action, title }) => (
           <ConsoleButton
             key={action}

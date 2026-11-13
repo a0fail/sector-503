@@ -19,13 +19,13 @@ export function getImage(path: string): HTMLImageElement | null {
 
 export function getEnemyImage(kind: number, shooting: boolean): HTMLImageElement | HTMLCanvasElement | null {
   const name = ENEMY_TYPES[kind]?.texture ?? 'worm';
-  const idle = getImage(`/textures/enemies/${name}-idle.png`);
-  const shot = getImage(`/textures/enemies/${name}-shoot.png`);
+  const idle = getImage(`./textures/enemies/${name}-idle.png`);
+  const shot = getImage(`./textures/enemies/${name}-shoot.png`);
   return (shooting ? shot ?? idle : idle) ?? getSketchArt(name, shooting);
 }
 
 export function getFrame(folder: string, name: string, second: boolean): HTMLImageElement | null {
-  const first = getImage(`/textures/${folder}/${name}-idle.png`);
-  const next = getImage(`/textures/${folder}/${name}-${folder === 'weapons' ? 'shoot' : '2'}.png`);
+  const first = getImage(`./textures/${folder}/${name}-idle.png`);
+  const next = getImage(`./textures/${folder}/${name}-${folder === 'weapons' ? 'shoot' : '2'}.png`);
   return second ? next ?? first : first;
 }

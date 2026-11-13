@@ -3,7 +3,7 @@ import { getImage } from './images';
 let texture: HTMLCanvasElement | null = null;
 
 export function getWallTexture(): HTMLCanvasElement | HTMLImageElement {
-  const custom = getImage('/textures/walls/wall.png');
+  const custom = getImage('./textures/walls/wall.png');
   if (custom) return custom;
   if (texture) return texture;
   texture = document.createElement('canvas');

@@ -76,7 +76,7 @@ export function drawEnemies(context: CanvasRenderingContext2D, game: Game, depth
       attackDelay: 0,
       size: 0.16,
       sprite: SPRITES[3],
-      image: getImage('/textures/effects/enemy-shot.png') ?? getSketchArt('projectile'),
+      image: getImage('./textures/effects/enemy-shot.png') ?? getSketchArt('projectile'),
     })),
   );
   entities.push(
@@ -166,7 +166,7 @@ function drawDefaultWeapon(context: CanvasRenderingContext2D, game: Game): void 
 
 function drawShot(context: CanvasRenderingContext2D, game: Game): void {
   const { width, height } = context.canvas;
-  const image = getImage(`/textures/effects/${game.laser ? 'laser-shot' : 'player-shot'}.png`);
+  const image = getImage(`./textures/effects/${game.laser ? 'laser-shot' : 'player-shot'}.png`);
   if (game.laser) {
     context.strokeStyle = '#e8b4ff';
     context.lineWidth = 3;
