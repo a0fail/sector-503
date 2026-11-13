@@ -1,0 +1,222 @@
+.app {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.eyebrow {
+  color: #54d9b7;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+.header h1 {
+  margin: 8px 0 0;
+  font-size: 40px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #effffb;
+}
+.console {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 7418 / 3698;
+  isolation: isolate;
+}
+.consoleBody {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+.screen {
+  position: absolute;
+  background: #10191f;
+  overflow: hidden;
+  container-type: inline-size;
+}
+.screen canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+.screen canvas:focus {
+  outline: none;
+}
+.hud {
+  position: absolute;
+  z-index: 1;
+  inset: auto 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  gap: 1.4cqw;
+  min-height: 22%;
+  padding: 1.8cqw;
+  background: #031d20ee;
+  color: #72f3d5;
+  font-size: 3.4cqw;
+  line-height: 1.3;
+  pointer-events: none;
+}
+.hud > span {
+  text-align: center;
+  white-space: nowrap;
+}
+.hud b {
+  display: block;
+  color: #e0e8de;
+  font-size: 3.7cqw;
+}
+.notice {
+  position: absolute;
+  z-index: 1;
+  top: 2cqw;
+  right: 2cqw;
+  max-width: 66%;
+  padding: 2cqw;
+  background: #08734dcc;
+  color: #fff;
+  font-size: 3cqw;
+  line-height: 1.35;
+  pointer-events: none;
+  border-radius: 1cqw;
+}
+.overlay {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3cqw;
+  background: linear-gradient(120deg, #041b20ef, #063f35ed);
+  text-align: center;
+}
+.overlay h2 {
+  margin: 0;
+  font-size: 7.5cqw;
+}
+.overlay p {
+  max-width: 90%;
+  color: #b9c4bc;
+  font-size: 4.2cqw;
+  line-height: 1.5;
+  margin: 2cqw 0;
+}
+.start {
+  margin-top: 1cqw;
+  padding: 3cqw 6cqw;
+  background: #00d5ac;
+  border: 0;
+  color: #1c211c;
+  font-size: 4.5cqw;
+  font-weight: 700;
+  cursor: pointer;
+}
+.sound {
+  margin-top: 12px;
+  padding: 8px 12px;
+  background: #0a2826;
+  color: #7ee7cd;
+  border: 1px solid #237265;
+  cursor: pointer;
+}
+.overlay .sound {
+  margin-top: 2cqw;
+  padding: 2.25cqw 3cqw;
+  font-size: 4cqw;
+}
+.consolePart,
+.cross {
+  position: absolute;
+}
+.consoleButton {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+.consoleButton img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.consoleButton:disabled {
+  cursor: default;
+}
+.cross > img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.crossPressed {
+  visibility: hidden;
+}
+.cross:has(button[data-pressed='true']) .crossIdle {
+  visibility: hidden;
+}
+.cross:has(button[data-pressed='true']) .crossPressed {
+  visibility: visible;
+}
+.forward {
+  clip-path: polygon(0 0, 100% 0, 50% 50%);
+}
+.right {
+  clip-path: polygon(100% 0, 100% 100%, 50% 50%);
+}
+.backward {
+  clip-path: polygon(100% 100%, 0 100%, 50% 50%);
+}
+.left {
+  clip-path: polygon(0 100%, 0 0, 50% 50%);
+}
+.app button:focus-visible {
+  outline: 2px solid #62ffdc;
+  outline-offset: 3px;
+}
+.cross button:focus-visible {
+  background: #62ffdc33;
+}
+.footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px 32px;
+  flex-wrap: wrap;
+}
+.footer p {
+  color: #a8b5ad;
+  font-size: 13px;
+  line-height: 1.8;
+}
+@media (max-width: 600px) {
+  .app {
+    padding: 20px 8px;
+  }
+  .header {
+    align-items: flex-start;
+  }
+  .header h1 {
+    font-size: 28px;
+  }
+}
